@@ -1,4 +1,4 @@
-export function getVersion(currentVersion?: string): string {
+function chronoversion(currentVersion?: string): string {
   const now = new Date();
   const currentYear = now.getFullYear();
   const currentMonth = now.getMonth() + 1; // getMonth() returns 0-indexed month
@@ -15,3 +15,5 @@ export function getVersion(currentVersion?: string): string {
 
   return `${currentYear}.${currentMonth}.1`;
 }
+
+export default chronoversion;

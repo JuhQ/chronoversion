@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getVersion = getVersion;
-function getVersion(currentVersion) {
+function chronoversion(currentVersion) {
     const now = new Date();
     const currentYear = now.getFullYear();
     const currentMonth = now.getMonth() + 1; // getMonth() returns 0-indexed month
@@ -14,3 +13,4 @@ function getVersion(currentVersion) {
     }
     return `${currentYear}.${currentMonth}.1`;
 }
+exports.default = chronoversion;

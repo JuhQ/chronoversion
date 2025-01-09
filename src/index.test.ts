@@ -1,6 +1,6 @@
-import { getVersion } from ".";
+import chronoversion from ".";
 
-describe("getVersion", () => {
+describe("chronoversion", () => {
   const originalDate = global.Date;
 
   beforeAll(() => {
@@ -19,28 +19,28 @@ describe("getVersion", () => {
   });
 
   test("should return current year and month with version 1 if currentVersion is undefined", () => {
-    expect(getVersion(undefined)).toBe("2025.1.1");
+    expect(chronoversion(undefined)).toBe("2025.1.1");
   });
 
   test("should increment version if currentVersion is from the same year and month", () => {
-    expect(getVersion("2025.1.1")).toBe("2025.1.2");
+    expect(chronoversion("2025.1.1")).toBe("2025.1.2");
   });
 
   test("should reset version if currentVersion is from a different year", () => {
-    expect(getVersion("2024.12.9")).toBe("2025.1.1");
+    expect(chronoversion("2024.12.9")).toBe("2025.1.1");
   });
 
   test("should reset version if currentVersion is from a different month", () => {
-    expect(getVersion("2025.12.9")).toBe("2025.1.1");
+    expect(chronoversion("2025.12.9")).toBe("2025.1.1");
   });
 
   test("should handle versions with more than one digit correctly", () => {
-    expect(getVersion("2025.1.9")).toBe("2025.1.10");
+    expect(chronoversion("2025.1.9")).toBe("2025.1.10");
   });
 
   test("should handle versions with multiple digits correctly", () => {
-    expect(getVersion("2025.1.99")).toBe("2025.1.100");
-    expect(getVersion("2025.1.999")).toBe("2025.1.1000");
+    expect(chronoversion("2025.1.99")).toBe("2025.1.100");
+    expect(chronoversion("2025.1.999")).toBe("2025.1.1000");
   });
 
   describe("edge cases", () => {
@@ -54,7 +54,7 @@ describe("getVersion", () => {
         }
       } as DateConstructor;
 
-      expect(getVersion("2025.1.2")).toBe("2025.2.1");
+      expect(chronoversion("2025.1.2")).toBe("2025.2.1");
     });
 
     test("should handle February 28th in a non-leap year", () => {
@@ -65,7 +65,7 @@ describe("getVersion", () => {
         }
       } as DateConstructor;
 
-      expect(getVersion("2025.2.1")).toBe("2025.2.2");
+      expect(chronoversion("2025.2.1")).toBe("2025.2.2");
     });
 
     test("should handle February 29th in a leap year", () => {
@@ -76,7 +76,7 @@ describe("getVersion", () => {
         }
       } as DateConstructor;
 
-      expect(getVersion("2024.2.1")).toBe("2024.2.2");
+      expect(chronoversion("2024.2.1")).toBe("2024.2.2");
     });
 
     test("should handle March 1st after February 28th in a non-leap year", () => {
@@ -87,7 +87,7 @@ describe("getVersion", () => {
         }
       } as DateConstructor;
 
-      expect(getVersion("2025.2.1")).toBe("2025.3.1");
+      expect(chronoversion("2025.2.1")).toBe("2025.3.1");
     });
 
     test("should handle March 1st after February 29th in a leap year", () => {
@@ -98,7 +98,7 @@ describe("getVersion", () => {
         }
       } as DateConstructor;
 
-      expect(getVersion("2024.2.1")).toBe("2024.3.1");
+      expect(chronoversion("2024.2.1")).toBe("2024.3.1");
     });
   });
 });
