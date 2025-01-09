@@ -4,19 +4,32 @@ const { getVersion } = require("./dist/index.js");
 
 function updatePackageVersion() {
   const packageJsonPath = path.resolve(__dirname, "package.json");
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+
+  let packageJson;
+  try {
+    const fileContent = fs.readFileSync(packageJsonPath, "utf8");
+    packageJson = JSON.parse(fileContent);
+  } catch (error) {
+    console.error("Failed to read or parse package.json:", error.message);
+    process.exit(1);
+  }
 
   const currentVersion = packageJson.version;
   const newVersion = getVersion(currentVersion);
 
   packageJson.version = newVersion;
 
-  fs.writeFileSync(
-    packageJsonPath,
-    JSON.stringify(packageJson, null, 2),
-    "utf8"
-  );
-  console.log(`Updated version from ${currentVersion} to ${newVersion}`);
+  try {
+    fs.writeFileSync(
+      packageJsonPath,
+      JSON.stringify(packageJson, null, 2),
+      "utf8"
+    );
+    console.log(`Updated version from ${currentVersion} to ${newVersion}`);
+  } catch (error) {
+    console.error("Failed to write updated package.json:", error.message);
+    process.exit(1);
+  }
 }
 
 updatePackageVersion();
