@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Get staged files
+files=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(js|jsx|ts|tsx)$' | tr '\n' ' ')
+
+if [ -n "$files" ]; then
+  # Lint only staged files
+  npm run lint -- $files || exit 1
+  # Run tests related to staged files
+  npm test -- --findRelatedTests $files || exit 1
+else
+  # If no relevant files staged, run all tests
+  npm test || exit 1
+fi
+
+# Generate TODO list
+npm run generate-todo || exit 1

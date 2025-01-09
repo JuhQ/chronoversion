@@ -12,7 +12,8 @@
     "postrelease": "git add package.json && git commit -m \"chore: bump version\" && git push && git push --tags",
     "lint": "npx @biomejs/biome check ./src",
     "lint:fix": "npm run lint -- --write",
-    "generate-todo": "leasot -x --reporter markdown 'src/**/*.{js,jsx,ts,tsx,css}' > TODO.md"
+    "generate-todo": "leasot -x --reporter markdown 'src/**/*.{js,jsx,ts,tsx,css}' > TODO.md",
+    "prepare": "husky"
   },
   "keywords": [
     "chronoversion",
@@ -27,12 +28,27 @@
   "description": "A tool to manage versions based on semver",
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.5",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "leasot": "^14.4.0",
+    "lint-staged": "^15.3.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint --",
+      "npm test --findRelatedTests"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
