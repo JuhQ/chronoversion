@@ -2,6 +2,7 @@
 
 - [Repository](https://github.com/JuhQ/chronoversion)
 - [Issues](https://github.com/JuhQ/chronoversion/issues)
+- [NPM](https://www.npmjs.com/package/chronoversion)
 
 ## Description
 
