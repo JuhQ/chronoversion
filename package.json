@@ -6,7 +6,8 @@
     "build": "tsc --outDir dist",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "bump-version": "node bump-version.js"
+    "bump-version": "node bump-version.js",
+    "release": "npm run build && npm run test && npm run bump-version"
   },
   "keywords": [
     "chronoversion",
