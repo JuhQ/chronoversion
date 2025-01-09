@@ -7,7 +7,9 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "bump-version": "node bump-version.js",
-    "release": "npm run build && npm run test && npm run bump-version"
+    "prerelease": "git diff-index --quiet HEAD && npm audit",
+    "release": "npm run build && npm run test && npm run bump-version",
+    "postrelease": "git add package.json && git commit -m \"chore: bump version\" && git push && git push --tags"
   },
   "keywords": [
     "chronoversion",
