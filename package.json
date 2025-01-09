@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc --outDir dist",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "bump-version": "node bump-version.js"
   },
   "keywords": [
     "chronoversion",
