@@ -1,0 +1,29 @@
+{
+  "name": "chronoversion",
+  "version": "2025.1.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --outDir dist",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "keywords": [
+    "chronoversion",
+    "version",
+    "semver",
+    "semver version",
+    "versioning",
+    "versioning tool"
+  ],
+  "author": "",
+  "license": "MIT",
+  "description": "A tool to manage versions based on semver",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
