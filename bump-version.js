@@ -1,12 +1,12 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const { getVersion } = require("./dist/index.js");
+const chronoversion = require("./dist/index.js").default;
 
 /**
  * Updates the version in the package.json and package-lock.json files.
  *
  * @description Reads the current package.json and package-lock.json, retrieves the current version,
- * generates a new version using the getVersion function, and writes the updated
+ * generates a new version using the chronoversion function, and writes the updated
  * version back to both files.
  *
  * @throws {Error} If unable to read or parse package.json or package-lock.json
@@ -38,7 +38,7 @@ function updatePackageVersion() {
   }
 
   const currentVersion = packageJson.version;
-  const newVersion = getVersion(currentVersion);
+  const newVersion = chronoversion(currentVersion);
 
   packageJson.version = newVersion;
   packageLockJson.version = newVersion;
