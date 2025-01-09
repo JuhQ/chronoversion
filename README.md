@@ -1,6 +1,7 @@
 # chronoversion
 
-[https://github.com/JuhQ/chronoversion](https://github.com/JuhQ/chronoversion)
+- [Repository](https://github.com/JuhQ/chronoversion)
+- [Issues](https://github.com/JuhQ/chronoversion/issues)
 
 ## Description
 
@@ -42,6 +43,9 @@ Chronoversion follows the format `YYYY.MM.PATCH`, where:
 
 ```bash
 npm install chronoversion
+
+# or using yarn
+yarn add chronoversion
 ```
 
 ### Usage
