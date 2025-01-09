@@ -4,14 +4,14 @@ const { getVersion } = require("./dist/index.js");
 
 /**
  * Updates the version in the package.json file.
- * 
+ *
  * @description Reads the current package.json, retrieves the current version,
  * generates a new version using the getVersion function, and writes the updated
  * version back to the file.
- * 
+ *
  * @throws {Error} If unable to read or parse package.json
  * @throws {Error} If unable to write updated package.json
- * 
+ *
  * @returns {void}
  */
 function updatePackageVersion() {
