@@ -12,7 +12,5 @@ function getVersion(currentVersion) {
     if (year === currentYear && month === currentMonth) {
         return `${currentYear}.${currentMonth}.${version + 1}`;
     }
-    else {
-        return `${currentYear}.${currentMonth}.1`;
-    }
+    return `${currentYear}.${currentMonth}.1`;
 }

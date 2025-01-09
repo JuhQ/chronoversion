@@ -11,7 +11,7 @@ export function getVersion(currentVersion?: string): string {
 
   if (year === currentYear && month === currentMonth) {
     return `${currentYear}.${currentMonth}.${version + 1}`;
-  } else {
-    return `${currentYear}.${currentMonth}.1`;
   }
+
+  return `${currentYear}.${currentMonth}.1`;
 }

@@ -1,12 +1,13 @@
 {
   "name": "chronoversion",
-  "version": "2025.1.2",
+  "version": "2025.1.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc --outDir dist",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "bump-version": "node bump-version.js",
+    "prerelease": "git diff-index --quiet HEAD && npm audit",
     "release": "npm run lint && npm run build && npm run test && npm run bump-version",
     "postrelease": "git add package.json && git commit -m \"chore: bump version\" && git push && git push --tags",
     "lint": "npx @biomejs/biome check ./src",

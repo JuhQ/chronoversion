@@ -37,6 +37,8 @@ describe("getVersion", () => {
     });
     describe("edge cases", () => {
         test("should handle single digit months correctly", () => {
+            // TODO: use jest mocks to control the current date
+            // TODO: remove noConstructorReturn rule from biome.json once the Date constructor is mocked
             global.Date = class extends Date {
                 constructor() {
                     super();
