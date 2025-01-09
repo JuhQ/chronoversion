@@ -6,11 +6,11 @@
     "build": "tsc --outDir dist",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "bump-version": "node bump-version.js",
+    "bump-version": "npx chronobump",
     "prerelease": "git diff-index --quiet HEAD && npm audit",
     "release": "npm run lint && npm run generate-todo && npm run build && npm run test && npm run bump-version",
     "postrelease": "git add package.json && git add package-lock.json && git commit -m \"chore: bump version\" && git push && git push --tags",
-    "lint": "npx @biomejs/biome check ./src bump-version.js",
+    "lint": "npx @biomejs/biome check ./src",
     "lint:fix": "npm run lint -- --write",
     "generate-todo": "leasot -x --reporter markdown 'src/**/*.{js,jsx,ts,tsx,css}' > TODO.md",
     "prepare": "husky"
