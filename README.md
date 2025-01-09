@@ -10,15 +10,18 @@ Chronoversion is a simple and intuitive versioning system for your projects. It 
 
 Chronoversion follows the format `YYYY.MM.PATCH`, where:
 
-- `YYYY` is the four-digit year.
-- `MM` is the two-digit month.
-- `PATCH` is the incremental patch number for the given month.
+- `YYYY`: Four-digit year (e.g., 2025)
+- `MM`: Month number (1-12, no leading zero required)
+- `PATCH`: Incremental patch number for the given month
 
 ### Rules for Version Incrementation
 
-1. If there is no existing version, the initial version is set to `YYYY.MM.1`.
-2. If the current year and month match the existing version, the patch number is incremented by 1.
-3. If the current year or month does not match the existing version, the version is reset to `YYYY.MM.1`.
+1.  If there is no existing version, the initial version is set to `YYYY.MM.1`.
+    - Example: First release in January 2025 → `2025.1.1`
+2.  If the current year and month match the existing version, the patch number is incremented by 1.
+    - Example: Second release in January 2025 → `2025.1.2`
+3.  If the current year or month does not match the existing version, the version is reset to `YYYY.MM.1`.
+    - Example: First release in February 2025 → `2025.2.1`
 
 ### Key Features and Benefits
 
