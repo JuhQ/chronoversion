@@ -44,10 +44,14 @@ Chronoversion follows the format `YYYY.MM.PATCH`, where:
 
 ### Installation
 
+npm
 ```bash
 npm install chronoversion
+```
 
-# or using yarn
+yarn
+
+```bash
 yarn add chronoversion
 ```
 
